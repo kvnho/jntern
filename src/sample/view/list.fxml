@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ListController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ListController">
    <children>
       <AnchorPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #ffffff;">
          <effect>
@@ -31,6 +32,11 @@
                   <Font size="18.0" />
                </font>
             </Label>
+            <JFXButton fx:id="addButton" layoutX="305.0" layoutY="9.0" prefHeight="37.0" prefWidth="62.0" style="-fx-background-color: #ff7043;" text="+" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="400.0" layoutY="50.0" prefHeight="450.0" prefWidth="400.0">

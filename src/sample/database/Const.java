@@ -8,4 +8,5 @@ public class Const {
     public static final String LISTINGS_LOCATION = "location";
     public static final String LISTINGS_LINK = "link";
 
+
 }

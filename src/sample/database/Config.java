@@ -6,4 +6,5 @@ public class Config {
     protected String dbUser = "root";
     protected String dbPassword = "password";
     protected String dbName = "jntern";
+
 }

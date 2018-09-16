@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AddFormController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AddFormController">
    <children>
       <AnchorPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #ffffff;">
          <effect>
@@ -51,5 +51,10 @@
             <Font size="24.0" />
          </font>
       </Label>
+      <JFXButton fx:id="backButton" layoutX="21.0" layoutY="67.0" prefHeight="39.0" prefWidth="64.0" style="-fx-background-color: #ff7043;" text="&lt;" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
