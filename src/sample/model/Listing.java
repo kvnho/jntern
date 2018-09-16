@@ -1,6 +1,7 @@
 package sample.model;
 
 public class Listing {
+    private int listingId;
     private String company;
     private String position;
     private String location;
@@ -47,5 +48,12 @@ public class Listing {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public int getListingId() {
+        return listingId;
+    }
+    public void setListingId(int listingId) {
+        this.listingId = listingId;
     }
 }

@@ -11,13 +11,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import sample.database.DatabaseHandler;
 import sample.model.Listing;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ListController {
+
     @FXML
     private ResourceBundle resources;
 
@@ -35,9 +39,31 @@ public class ListController {
 
     private ObservableList<Listing> listings;
 
+    private DatabaseHandler databaseHandler;
+
 
     @FXML
-    void initialize() {
+    void initialize() throws SQLException, ClassNotFoundException {
+
+        listings = FXCollections.observableArrayList();
+
+        databaseHandler = new DatabaseHandler();
+        ResultSet resultSet = databaseHandler.getListing();
+
+        while (resultSet.next()){
+            Listing listing = new Listing();
+            listing.setListingId(resultSet.getInt("listingid"));
+            listing.setCompany(resultSet.getString("company"));
+            listing.setPosition(resultSet.getString("position"));
+            listing.setLocation(resultSet.getString("location"));
+            listing.setLink(resultSet.getString("link"));
+
+            listings.addAll(listing);
+        }
+
+        applyListView.setItems(listings);
+        applyListView.setCellFactory(CellController -> new CellController());
+
 
         addButton.setOnAction(event -> {
             try {
@@ -46,20 +72,6 @@ public class ListController {
                 e.printStackTrace();
             }
         });
-
-        Listing myListing = new Listing();
-        myListing.setCompany("Company 1");
-        myListing.setPosition("Position 1");
-
-        Listing myListing2 = new Listing();
-        myListing2.setCompany("Company 2");
-        myListing2.setPosition("Position 2");
-
-        listings = FXCollections.observableArrayList();
-        listings.addAll(myListing, myListing2);
-
-        applyListView.setItems(listings);
-        applyListView.setCellFactory(CellController -> new CellController());
 
     }
 
@@ -72,4 +84,5 @@ public class ListController {
         window.setScene(scene);
         window.show();
     }
+
 }

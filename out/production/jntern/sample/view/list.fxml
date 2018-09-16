@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ListController">
+   <children>
+      <AnchorPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #ffffff;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="12.0" prefHeight="27.0" prefWidth="51.0" text="jntern" textFill="#ff7043">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="50.0" prefHeight="450.0" prefWidth="400.0">
+         <children>
+            <JFXListView fx:id="applyListView" layoutX="10.0" layoutY="56.0" prefHeight="380.0" prefWidth="380.0">
+               <effect>
+                  <DropShadow />
+               </effect></JFXListView>
+            <Label layoutX="169.0" layoutY="14.0" text="Wishlist">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="addButton" layoutX="305.0" layoutY="9.0" prefHeight="37.0" prefWidth="62.0" style="-fx-background-color: #ff7043;" text="+" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="400.0" layoutY="50.0" prefHeight="450.0" prefWidth="400.0">
+         <children>
+            <JFXListView fx:id="appliedListView" layoutX="10.0" layoutY="56.0" prefHeight="380.0" prefWidth="380.0">
+               <effect>
+                  <DropShadow />
+               </effect></JFXListView>
+            <Label layoutX="169.0" layoutY="14.0" text="Applied">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

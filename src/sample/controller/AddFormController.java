@@ -19,6 +19,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddFormController {
+    public static int listingId;
+
     @FXML
     private ResourceBundle resources;
 
@@ -87,6 +89,13 @@ public class AddFormController {
         Stage window = new Stage();
         window.setScene(scene);
         window.show();
+    }
+
+    public void setListingId(int listingId){
+        this.listingId = listingId;
+    }
+    public int getListingId(){
+        return this.listingId;
     }
 
 }

@@ -24,4 +24,29 @@ public class DatabaseHandler extends Config{
         preparedStatement.setString(4, listing.getLink());
         preparedStatement.executeUpdate();
     }
+
+    //Fetch listing
+    public ResultSet getListing () throws SQLException, ClassNotFoundException {
+        ResultSet resultListings = null;
+        String query = "SELECT * FROM " + Const.LISTINGS_TABLE;
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(query);
+
+        resultListings = preparedStatement.executeQuery();
+
+        return resultListings;
+    }
+
+    // Edit listing
+    public void editListing(int listingId, String company, String position, String location, String link) throws SQLException, ClassNotFoundException {
+        String query = "UPDATE listings SET company=?, position=?, location=?, link=? WHERE listingid=?";
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(query);
+        preparedStatement.setString(1, company);
+        preparedStatement.setString(2, position);
+        preparedStatement.setString(3, location);
+        preparedStatement.setString(4, link);
+        preparedStatement.setInt(5, listingId);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+
+    }
 }
