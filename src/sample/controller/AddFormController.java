@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -11,6 +12,7 @@ import sample.database.DatabaseHandler;
 import sample.model.Listing;
 
 import javax.xml.crypto.Data;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -44,7 +46,11 @@ public class AddFormController {
     @FXML
     void initialize() {
         backButton.setOnAction(event -> {
-            listScreen();
+            try {
+                listScreen();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
         saveButton.setOnAction(event -> {
             try {
@@ -53,6 +59,8 @@ public class AddFormController {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
@@ -71,20 +79,14 @@ public class AddFormController {
         databaseHandler.createListing(listing);
     }
 
-    private void listScreen(){
+    private void listScreen() throws IOException {
         backButton.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/sample/view/list.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/sample/view/list.fxml"));
+        Scene scene = new Scene(parent);
 
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.showAndWait();
+        Stage window = new Stage();
+        window.setScene(scene);
+        window.show();
     }
 
 }

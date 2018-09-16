@@ -40,7 +40,11 @@ public class ListController {
     void initialize() {
 
         addButton.setOnAction(event -> {
-            addFormScreen();
+            try {
+                addFormScreen();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
 
         Listing myListing = new Listing();
@@ -59,19 +63,13 @@ public class ListController {
 
     }
 
-    private void addFormScreen(){
+    private void addFormScreen() throws IOException {
         addButton.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/sample/view/addForm.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/sample/view/addForm.fxml"));
+        Scene scene = new Scene(parent);
 
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.showAndWait();
+        Stage window = new Stage();
+        window.setScene(scene);
+        window.show();
     }
 }
