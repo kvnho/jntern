@@ -6,6 +6,10 @@ public class Listing {
     private String location;
     private String link;
 
+    public Listing(){
+
+    }
+
     public Listing(String company, String position, String location, String link){
         this.company = company;
         this.position = position;

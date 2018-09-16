@@ -22,7 +22,7 @@
       </AnchorPane>
       <AnchorPane layoutY="50.0" prefHeight="450.0" prefWidth="400.0">
          <children>
-            <JFXListView fx:id="wishlistListView" layoutX="10.0" layoutY="56.0" prefHeight="380.0" prefWidth="380.0">
+            <JFXListView fx:id="applyListView" layoutX="10.0" layoutY="56.0" prefHeight="380.0" prefWidth="380.0">
                <effect>
                   <DropShadow />
                </effect></JFXListView>

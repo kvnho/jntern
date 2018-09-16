@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
+import sample.model.Listing;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,25 +19,32 @@ public class ListController {
     private URL location;
 
     @FXML
-    private JFXListView<String> wishlistListView;
+    private JFXListView<Listing> applyListView;
 
     @FXML
-    private JFXListView<String> appliedListView;
+    private JFXListView<Listing> appliedListView;
 
-
-    ObservableList<String> wishlist = FXCollections.observableArrayList("Job 1", "Job 2", "Job 3", "Job 4");
-    ObservableList<String> appliedlist = FXCollections.observableArrayList("Job 1", "Job 2", "Job 3", "Job 4");
+    private ObservableList<Listing> listings;
 
 
     @FXML
     void initialize() {
-        wishlistListView.setItems(wishlist);
-        wishlistListView.setVerticalGap(10.0);
-        wishlistListView.setExpanded(true);
 
-        appliedListView.setItems(appliedlist);
-        appliedListView.setVerticalGap(10.0);
-        appliedListView.setExpanded(true);
+        Listing myListing = new Listing();
+        myListing.setCompany("Company 1");
+        myListing.setPosition("Position 1");
+
+        Listing myListing2 = new Listing();
+        myListing2.setCompany("Company 2");
+        myListing2.setPosition("Position 2");
+
+        listings = FXCollections.observableArrayList();
+        listings.addAll(myListing, myListing2);
+
+        applyListView.setItems(listings);
+        applyListView.setCellFactory(CellController -> new CellController());
+
+
 
 
 
