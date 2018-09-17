@@ -45,18 +45,6 @@ public class CellController extends JFXListCell<Listing> {
 
     }
 
-    /*
-    private void editScreen() throws IOException {
-        editButton.getScene().getWindow().hide();
-        Parent parent = FXMLLoader.load(getClass().getResource("/sample/view/editForm.fxml"));
-        Scene scene = new Scene(parent);
-
-        Stage window = new Stage();
-        window.setScene(scene);
-        window.show();
-    }
-    */
-
     @Override
     public void updateItem(Listing item, boolean empty) {
         super.updateItem(item, empty);
@@ -110,15 +98,28 @@ public class CellController extends JFXListCell<Listing> {
                 editFormController.saveButton.setOnAction(event1 -> {
                     try {
                         databaseHandler.editListing(item.getListingId(), editFormController.getCompanyTextField(), editFormController.getPositionTextField(), editFormController.getLocationTextField(), editFormController.getLinkTextField());
+
+                        editFormController.saveButton.getScene().getWindow().hide();
+                        Parent parent = FXMLLoader.load(getClass().getResource("/sample/view/list.fxml"));
+                        Scene scene = new Scene(parent);
+                        Stage window = new Stage();
+                        window.setScene(scene);
+                        window.show();
+
                     } catch (SQLException e) {
                         e.printStackTrace();
                     } catch (ClassNotFoundException e) {
                         e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 });
+
 
                 stage.show();
             });
         }
     }
+
+
 }

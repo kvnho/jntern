@@ -9,7 +9,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sample.model.Listing;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -60,6 +63,17 @@ public class EditFormController {
             try {
                 listScreen();
             } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        applicationButton.setOnAction(event -> {
+            Desktop desktop = Desktop.getDesktop();
+            try {
+                desktop.browse(new URI(getLinkTextField()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
         });
@@ -123,5 +137,7 @@ public class EditFormController {
         window.setScene(scene);
         window.show();
     }
+
+
 
 }

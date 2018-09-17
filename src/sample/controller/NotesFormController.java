@@ -52,6 +52,7 @@ public class NotesFormController {
         });
     }
 
+
     private void infoScreen() throws IOException {
         notesButton.getScene().getWindow().hide();
         Parent parent = FXMLLoader.load(getClass().getResource("/sample/view/editForm.fxml"));

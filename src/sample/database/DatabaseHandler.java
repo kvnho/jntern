@@ -47,6 +47,6 @@ public class DatabaseHandler extends Config{
         preparedStatement.setInt(5, listingId);
         preparedStatement.executeUpdate();
         preparedStatement.close();
-
     }
+
 }
