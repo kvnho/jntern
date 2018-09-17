@@ -1,7 +1,6 @@
 package sample.controller;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXListCell;
 import com.jfoenix.controls.JFXListView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.database.DatabaseHandler;
 import sample.model.Listing;
@@ -81,6 +79,7 @@ public class ListController {
         Scene scene = new Scene(parent);
 
         Stage window = new Stage();
+        window.setTitle("jntern");
         window.setScene(scene);
         window.show();
     }

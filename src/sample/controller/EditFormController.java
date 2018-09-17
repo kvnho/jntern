@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sample.model.Listing;
 
 import java.awt.*;
 import java.io.IOException;
@@ -125,6 +124,7 @@ public class EditFormController {
         Scene scene = new Scene(parent);
 
         Stage window = new Stage();
+        window.setTitle("jntern");
         window.setScene(scene);
         window.show();
     }
@@ -134,6 +134,7 @@ public class EditFormController {
         Scene scene = new Scene(parent);
 
         Stage window = new Stage();
+        window.setTitle("jntern");
         window.setScene(scene);
         window.show();
     }

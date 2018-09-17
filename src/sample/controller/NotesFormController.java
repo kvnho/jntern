@@ -59,6 +59,7 @@ public class NotesFormController {
         Scene scene = new Scene(parent);
 
         Stage window = new Stage();
+        window.setTitle("jntern");
         window.setScene(scene);
         window.show();
     }
@@ -69,6 +70,7 @@ public class NotesFormController {
         Scene scene = new Scene(parent);
 
         Stage window = new Stage();
+        window.setTitle("jntern");
         window.setScene(scene);
         window.show();
     }

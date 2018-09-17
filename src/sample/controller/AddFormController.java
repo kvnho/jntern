@@ -4,15 +4,12 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sample.database.DatabaseHandler;
 import sample.model.Listing;
 
-import javax.xml.crypto.Data;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -87,6 +84,7 @@ public class AddFormController {
         Scene scene = new Scene(parent);
 
         Stage window = new Stage();
+        window.setTitle("jntern");
         window.setScene(scene);
         window.show();
     }

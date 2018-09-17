@@ -7,12 +7,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import sample.database.DatabaseHandler;
 import sample.model.Listing;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -34,15 +38,15 @@ public class CellController extends JFXListCell<Listing> {
     private Label positionLabel;
 
     @FXML
-    private JFXButton editButton;
+    private JFXButton applyButton;
 
     private FXMLLoader fxmlLoader;
 
     private DatabaseHandler databaseHandler;
 
+
     @FXML
     void initialize() {
-
     }
 
     @Override
@@ -73,7 +77,18 @@ public class CellController extends JFXListCell<Listing> {
             setText(null);
             setGraphic(rootAnchorPane);
 
-            int listingId = item.getListingId();
+
+
+            applyButton.setOnMouseClicked(event -> {
+                Desktop desktop = Desktop.getDesktop();
+                try {
+                    desktop.browse(new URI(item.getLink()));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                }
+            });
 
             rootAnchorPane.setOnMouseClicked(event -> {
                 rootAnchorPane.getScene().getWindow().hide();
@@ -87,6 +102,7 @@ public class CellController extends JFXListCell<Listing> {
 
                 Parent root = loader.getRoot();
                 Stage stage = new Stage();
+                stage.setTitle("jntern");
                 stage.setScene(new Scene(root));
 
                 EditFormController editFormController = loader.getController();
@@ -103,6 +119,7 @@ public class CellController extends JFXListCell<Listing> {
                         Parent parent = FXMLLoader.load(getClass().getResource("/sample/view/list.fxml"));
                         Scene scene = new Scene(parent);
                         Stage window = new Stage();
+                        window.setTitle("jntern");
                         window.setScene(scene);
                         window.show();
 
@@ -114,6 +131,8 @@ public class CellController extends JFXListCell<Listing> {
                         e.printStackTrace();
                     }
                 });
+
+
 
 
                 stage.show();
